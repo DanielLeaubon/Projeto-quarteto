@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agradecimento</title>
+    <link rel="stylesheet" href="css/agradecimento.css">
+</head>
+
+<body>
+    <header id="cabecalho">
+        <img src="img/Imagem1.png" alt="">
+        <div>
+            Obrigado pela colaboração!
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <p>É importante disseminar a cultura sobre doação de órgãos e desconstruir a ideia sobre morte, afinal, da vida
+            nada
+            levamos, exceto o que somos! Discutir abertamente com a família e amigos é uma forma de discorrer sobre o
+            assunto.
+
+            <br><br>Manifestar o desejo em ser doador de órgãos é uma atitude nobre, é ver a vida dando continuidade na
+            existência
+            do outro, é possibilitar a esperança de viver.
+
+            <br><br>Nosso muito obrigado a todas as famílias doadoras e aos profissionais envolvidos nesse processo de
+            continuidade
+            de vida!
+        </p>
+        <h1 id="colaboradores">Colaboradores:</h1>
+
+        <div id="mainColab">
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>CEP</th>
+                    <th>Endereço</th>
+                    <th>Sangue</th>
+                </tr>
+                <% for (let i=0; i < vetorDados.length; i++) { %>
+                    <tr>
+                        <td><%=vetorDados[i].nome%></td>
+                        <td><%=vetorDados[i].idade%></td>
+                        <td><%=vetorDados[i].email%></td>
+                        <td><%=vetorDados[i].telefone%></td>
+                        <td><%=vetorDados[i].CEP%></td>
+                        <td><%=vetorDados[i].endereco%></td>
+                        <td><%=vetorDados[i].sangue%></td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+
+        <button id="voltar">
+            <a href="/">Voltar</a>
+        </button>
+    </main>
+
+    <footer id="rodape">
+
+    </footer>
+
+</body>
+
+</html>

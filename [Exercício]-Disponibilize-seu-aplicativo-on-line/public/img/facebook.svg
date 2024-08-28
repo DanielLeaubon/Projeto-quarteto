@@ -1,0 +1,9 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<circle id="facebook" cx="15" cy="15" r="15" fill="url(#pattern0)"/>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_19_23" transform="scale(0.00444444)"/>
+</pattern>
+<image id="image0_19_23" data-name="facebook.png" width="225" height="225" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAdVBMVEUAAAD3+/z///9vcHFYV1fn7Oo9Pj77///KysrBwsSztLXl6uv2/PzQ0dDr8PHZ2tx0c3OSkpKpqam8vr2vr6+ZmZmBgYBhYGBBQEAbGhkdHR7d4eLk5eeeoqPMzM4NDA5paGpKSUkyMTGKiopRUVInJyg3NjgNHXKSAAACeElEQVR4nO3d227aQBRGYTwcxuEwnEJCQziEtLz/I7ZRVamqmSkWW9r+0fqufbGXPNjYg0SvBwAAAAAAAAAAAAAAAAAAAAmjxXK1rmdf6no9fl5tli+L1+0377lMvPWfdzGE+I/wW1x5z3evfl39yqiywth7wvtsUojT6TQfWEXpwk0VCm36hYP3//dJF+5j4dP3CIWHW06gcOFxfmOgbOE8lK6fD1B4uOkjKFy4v3WJqhYOWgRqFqbb16hm4abNKVQsPKY2gYqF7U6hYuGkVaBg4andKRQsfGpzIZUsbNcn+Iz/UV6kX+9rqsnfktp7mmVpkYY0Xpy9J7xX8WO49J7Owi6/QNPFezgLpS80I+/hTJyzizRsvGezsc1fSt+8Z7ORfTSMM+/RjGS/s8W992hG+rnC8OI9mpF84cl7NCP5wlfv0YzkCwfeoxmhUB+F+ijUR6E+CvVRqI9CKeM0bHhP2R+ZpMmkefxwmNbeHXltN5ky57bD2xZGhZ/eHXlGhSfvjjyjwh/eHXk2hdE7o8CmMHlnFFgUTuPBO6PAprDLu/gmhaHL28I2hX3vjAKbVfrdO6PApLDq8O3Q5m7R5ZuFSWGce1eUmBQ+eVeUmBR2eu/borDbe98mhV2+Wdis0i7fLEwK09G7osSgMO68I4rqcE2+5trRXX526vXO21HD5TP7vnRxaR4+Evw57UO9Eb6KQn0U6qNQH4X6KNRHoT4K9VGoj0J9FOqjUB+F+ijUR6E+CvVRqI9CfRTqo1Afhfoo1EehPgr1UaiPQn0U6qNQH4X6+o2/Ofzzb4ePUjiY1dfNPrxHAwAAAAAAAAAAAAAAAAAAQMNPJt8lfpUJw9oAAAAASUVORK5CYII="/>
+</defs>
+</svg>

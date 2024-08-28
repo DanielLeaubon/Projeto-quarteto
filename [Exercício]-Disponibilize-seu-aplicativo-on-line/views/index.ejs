@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação de orgãos</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/formulario.css">
+</head>
+
+<body>
+    <header id="cabecalho">
+        <img src="img/Logo.svg" alt="">
+        <h1>Hospital Municipal<br><span style="visibility: hidden;">.....</span>Mariana Maria de Jesus</h1>
+        <button class="beneficios"><a href="/motivacao">Benefícios</a></button>
+        <button class="sobre"><a href="/sobre">Sobre</a></button>
+        <button id="formularioBotao" class="cadastre-se">Cadastre-se</a></button>
+    </header>
+
+    <main id="conteudo">
+
+        <div id="mainFormulario" class="input-group">
+            <form class="container" action="/agradecimento" method="post">
+                <button id="abrirFechar" type="button"><strong>X</strong></button>
+
+                <label class="" for="nomeInput">Nome Completo:
+                    <input id="nomeInput" type="text" name="nomeInput"></label>
+
+                <label class="" for="data">Data de Nascimento (dia/mês/ano):</label>
+                <input class="" type="date" name="idadeInput">
+
+                <label class="" for="email">Email:</label>
+                <input class="" type="email" name="emailInput">
+
+                <label class="" for="telefone">Telefone:</label>
+                <label class="tel" for="ddd">DDD:</label>
+                <input style="width: 10%;" class="" type="number" name="dddInput" maxlength="2">
+                <label class="tel" for="celular">Tel:</label>
+                <input style="width: 40%;" class="" type="number" name="celularInput" maxlength="9">
+
+                <label class="" for="endereco">Endereço:</label>
+                <input class="" type="text" name="enderecoInput">
+
+                <label class="" for="cep">CEP:</label>
+                <input class="" type="number" name="CEPInput" maxlength="8">
+
+                <label class="" for="tipoSanguineo">Tipo sanguineo:</label>
+                <label class="sangue" for="tipoA+">A+</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="A+">
+
+                <label class="sangue" for="tipoA-">A-</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="A-">
+
+                <label class="sangue" for="tipoB+">B+</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="B+">
+
+                <label class="sangue" for="tipoB-">B-</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="B-">
+
+                <br>
+
+                <label class="sangue" for="tipoO+">O+</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="O+">
+
+                <label class="sangue" for="tipoO-">O-</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="O-">
+
+                <label class="sangue" for="tipoAB+">AB+</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="AB+">
+
+                <label class="sangue" for="tipoAB-">AB-</label>
+                <input class="" type="radio" name="tipoSanguineoInput" value="AB-">
+
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer id="rodape">
+        <p>“A medida da vida não é sua duração, mas a sua doação.”</p>
+        <h3><strong>Redes Sociais</strong></h3>
+        <img src="img/instagram.svg" alt="">
+        <img src="img/whatsapp.svg" alt="">
+        <img src="img/facebook.svg" alt="">
+        <img src="img/youtube.svg" alt="">
+    </footer>
+
+    <script src="js/formulario.js"></script>
+
+</body>
+
+</html>

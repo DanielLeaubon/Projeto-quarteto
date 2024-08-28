@@ -1,0 +1,229 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#cabecalho {
+    background: linear-gradient(180deg, #187D22 81.77%, #2D2D2D 100%);
+    width: 100%;
+    height: 24.5vh;
+}
+
+#cabecalho img {
+    position: relative;
+    top: 15%;
+    left: 2%;
+}
+
+#cabecalho h1 {
+    font-size: 20pt;
+    width: 40%;
+    position: relative;
+    top: -25%;
+    left: 7%;
+    margin: 0%;
+}
+
+#cabecalho a {
+    color: #000;
+    text-decoration: none;
+}
+
+.beneficios,
+.sobre,
+.cadastre-se {
+    color: #000;
+    text-align: center;
+    font-family: Inika;
+    font-size: 120%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+    left: 60%;
+    top: -20%;
+    margin: 0% 3% 0% 0%;
+
+    width: 10%;
+    height: 5vh;
+    padding: 0.1%;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 3px solid #000;
+    background: #828282;
+}
+
+.beneficios:hover,
+.sobre:hover,
+.cadastre-se:hover {
+    background-color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+
+#conteudo {
+    position: absolute;
+    background: url(img/fundo.png), lightgray 50% / cover no-repeat;
+    width: 100%;
+    height: 101vh;
+}
+
+#rodape {
+    position: absolute;
+    top: 125%;
+    background: linear-gradient(180deg, #2D2D2D 0%, #187D22 36.46%);
+    width: 100%;
+    height: 15vh;
+    flex-shrink: 0;
+}
+
+#rodape p {
+    position: relative;
+    top: 5%;
+    margin: 0%;
+
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inika;
+    font-size: 100%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#rodape h3 {
+    width: 30%;
+    margin: 0% 0% 0.5% 0%;
+    position: relative;
+    left: 3%;
+
+    color: #000;
+    text-align: left;
+    font-family: Inter;
+    font-size: 150%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#rodape img {
+    position: relative;
+    left: 5%;
+    margin: 0% 1% 0% 0%;
+}
+
+@media screen and (max-width: 768px) {
+
+    #cabecalho {
+        background: linear-gradient(180deg, #187D22 81.77%, #2D2D2D 100%);
+        width: 100%;
+        height: 24.5vh;
+    }
+
+    #cabecalho img {
+        position: relative;
+        width: 5%;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    #cabecalho h1 {
+        position: relative;
+        width: 60%;
+        font-size: 100%;
+        top: -0%;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+    }
+
+    #cabecalho span{
+        display: none;
+    }
+
+    #cabecalho a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .beneficios,
+    .sobre,
+    .cadastre-se {
+        box-sizing: border-box;
+        color: #000;
+        text-align: center;
+        font-family: Inika;
+        font-size: 75%;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        position: relative;
+        left: 4%;
+        top: 10%;
+        margin: 0% 0% 0% 0%;
+    
+        width: 30%;
+        height: 5vh;
+        padding: 0.1%;
+        flex-shrink: 0;
+        border-radius: 0px;
+        border: 3px solid #000;
+        background: #828282;
+    }
+
+    #conteudo {
+        position: absolute;
+        background: url(img/fundo.png), lightgray 50% / cover no-repeat;
+        width: 100%;
+        height: 101vh;
+    }
+
+    #rodape {
+        position: absolute;
+        top: 125%;
+        background: linear-gradient(180deg, #2D2D2D 0%, #187D22 36.46%);
+        width: 100%;
+        height: 15vh;
+        flex-shrink: 0;
+    }
+
+    #rodape p {
+        position: relative;
+        top: 5%;
+        margin: 0%;
+
+        color: #FFF;
+        text-align: center;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: Inika;
+        font-size: 50%;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    #rodape h3 {
+        width: 50%;
+        margin: 0% 0% 0.5% 0%;
+        position: relative;
+        top: 15%;
+        left: 3%;
+
+        color: #000;
+        text-align: left;
+        font-family: Inter;
+        font-size: 100%;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    #rodape img {
+        position: relative;
+        width: 5%;
+        top: 15%;
+        left: 5%;
+        margin: 0% 1% 0% 0%;
+    }
+}

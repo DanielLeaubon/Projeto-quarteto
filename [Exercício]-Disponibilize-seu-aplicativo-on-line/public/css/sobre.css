@@ -1,0 +1,244 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background: #D9D9D9;
+}
+
+#cabecalho {
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 15%;
+    flex-shrink: 0;
+
+    border-bottom: 3px solid #000;
+    background: #187D22;
+}
+
+#cabecalho h1 {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    top: -40%;
+    text-align: center;
+    width: 30%;
+    font-size: 150%;
+}
+
+#cabecalho img {
+    position: relative;
+    width: 10%;
+    height: 10vh;
+    top: 20%;
+    left: 2%;
+}
+
+#conteudo {
+    width: 90%;
+    margin: 0% 5% 0% 5%;
+}
+
+.img-1 {
+    width: 40%;
+    height: 50vh;
+    flex-shrink: 0;
+    margin-bottom: 1%;
+
+    box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.50);
+    border: solid black 2px;
+}
+
+.img-2 {
+    display: block;
+    width: 40%;
+    height: 50vh;
+    flex-shrink: 0;
+    margin: auto;
+    margin-bottom: 5%;
+
+    box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.50);
+    border: solid black 2px;
+}
+
+.text-1 {
+    position: relative;
+    bottom: 0;
+    display: inline-block;
+    width: 54%;
+    margin: 0% 0% 0% 5%;
+
+    color: #000;
+    text-align: justify;
+    font-size: 175%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-2 {
+    width: 100%;
+    margin-bottom: 5%;
+
+    color: #000;
+    text-align: justify;
+    font-size: 175%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#voltar {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 20%;
+    height: 10vh;
+    margin: 5% 0% 5% 0%;
+
+    color: #1F1B1B;
+    text-align: center;
+    font-family: Inika;
+    font-size: 225%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    border: solid #2D2D2D;
+    border-radius: 20px;
+    background-color: gray;
+}
+
+#voltar a {
+    color: #1F1B1B;
+    text-decoration: none;
+}
+
+#voltar:hover {
+    background-color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+
+#rodape {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #2D2D2D 0%, #187D22 36.46%);
+}
+
+@media screen and (max-width: 768px) {
+
+    #cabecalho {
+        width: 100%;
+        height: 15vh;
+        margin-bottom: 15%;
+        flex-shrink: 0;
+
+        border-bottom: 3px solid #000;
+        background: #187D22;
+    }
+
+    #cabecalho h1 {
+        position: relative;
+        font-size: 125%;
+        left: 50%;
+        transform: translate(-50%);
+        top: -70%;
+        text-align: center;
+        width: 60%;
+    }
+
+    #cabecalho img {
+        position: relative;
+        width: 10%;
+        height: 10vh;
+        top: 20%;
+        left: 2%;
+    }
+
+    #conteudo {
+        width: 90%;
+        margin: 0% 5% 0% 5%;
+    }
+
+    .img-1 {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        width: 70%;
+        height: 40vh;
+        flex-shrink: 0;
+        margin-bottom: 10%;
+        box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.50);
+        border: solid black 2px;
+    }
+
+    .img-2 {
+        position: relative;
+        left: 40%;
+        transform: translate(-50%);
+        width: 70%;
+        height: 40vh;
+        flex-shrink: 0;
+        margin-bottom: 10%;
+        box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.50);
+        border: solid black 2px;
+    }
+
+    .text-1 {
+        position: relative;
+        bottom: 0;
+        display: inline-block;
+        width: 100%;
+        margin: 0% 0% 10% 0%;
+
+        color: #000;
+        text-align: justify;
+        font-size: 130%;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .text-2 {
+        width: 100%;
+        margin-bottom: 10%;
+
+        color: #000;
+        text-align: justify;
+        font-size: 130%;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    #voltar {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        width: 50%;
+        height: 8vh;
+        margin: 5% 0% 5% 0%;
+
+        color: #1F1B1B;
+        text-align: center;
+        font-family: Inika;
+        font-size: 225%;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        border: solid #2D2D2D;
+        border-radius: 20px;
+        background-color: gray;
+    }
+
+    #rodape {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        height: 10vh;
+        flex-shrink: 0;
+        background: linear-gradient(180deg, #2D2D2D 0%, #187D22 36.46%);
+    }
+}
