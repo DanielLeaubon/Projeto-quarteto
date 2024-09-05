@@ -19,6 +19,12 @@ if (fs.existsSync('cadastroDados.json')) {
   console.log(dados);
   vetorDados = JSON.parse(dados)
 }
+var vetorDadosVacina = []
+if (fs.existsSync('cadastroDadosvacina.json')) {
+  const dados = fs.readFileSync('cadastroDadosvacina.json', 'utf-8')
+  console.log(dados);
+  vetorDadosVacina = JSON.parse(dados)
+}
 
 /*
 app
@@ -82,6 +88,39 @@ app
     fs.writeFileSync('cadastroDados.json', `\n${JSON.stringify(vetorDados)}`)
 
     res.render("agradecimento", { vetorDados });
+  });
+
+  app
+  .route("/vacina")
+  .get((req, res) => {
+    res.render("vacina");
+  })
+  .post((req, res) => {
+    let nomeForm = req.body.nomeInput
+    let idadeForm = req.body.idadeInput
+    let emailForm = req.body.emailInput
+    let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
+    let CEPForm = req.body.CEPInput
+    let enderecoForm = req.body.enderecoInput
+    let vacinaForm = req.body.tipoSanguineoInput
+
+    let cadastro = {
+      'nome': nomeForm,
+      'idade': idadeForm,
+      'email': emailForm,
+      'telefone': telefoneForm,
+      'CEP': CEPForm,
+      'endereco': enderecoForm,
+      'vacina': vacinaForm,
+    }
+
+    console.log(cadastro);
+    console.log('\n' + JSON.stringify(cadastro) + ',');
+
+    vetorDadosVacina.push(cadastro)
+    fs.writeFileSync('cadastroDados.json', `\n${JSON.stringify(vetorDadosVacina)}`)
+
+    res.render("agradecimento", { vetorDadosVacina });
   });
 
 
