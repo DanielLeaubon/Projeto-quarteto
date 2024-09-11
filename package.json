@@ -7,6 +7,6 @@
     "nodemon": "^3.1.4"
   },
   "scripts": {
-    "start": "node Quarteto/servidor.js"
+    "start": "node servidor.js"
   }
 }
