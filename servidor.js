@@ -2,6 +2,15 @@
 const port = 3000;
 var cont = 0
 
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://dleaubon:sal12345678@projeto.hxqcz.mongodb.net/?retryWrites=true&w=majority&appName=Projeto";
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
 const express = require("express");
 const app = express();
