@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agradecimento</title>
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="stylesheet" href="css/agradecimento.css">
 </head>
 
@@ -45,13 +47,27 @@
                 </tr>
                 <% for (let i=0; i < vetorDados.length; i++) { %>
                     <tr>
-                        <td><%=vetorDados[i].nome%></td>
-                        <td><%=vetorDados[i].idade%></td>
-                        <td><%=vetorDados[i].email%></td>
-                        <td><%=vetorDados[i].telefone%></td>
-                        <td><%=vetorDados[i].CEP%></td>
-                        <td><%=vetorDados[i].endereco%></td>
-                        <td><%=vetorDados[i].sangue%></td>
+                        <td>
+                            <%=vetorDados[i].nome%>
+                        </td>
+                        <td>
+                            <%=vetorDados[i].idade%>
+                        </td>
+                        <td>
+                            <%=vetorDados[i].email%>
+                        </td>
+                        <td>
+                            <%=vetorDados[i].telefone%>
+                        </td>
+                        <td>
+                            <%=vetorDados[i].CEP%>
+                        </td>
+                        <td>
+                            <%=vetorDados[i].endereco%>
+                        </td>
+                        <td>
+                            <%=vetorDados[i].sangue%>
+                        </td>
                     </tr>
                     <% } %>
             </table>

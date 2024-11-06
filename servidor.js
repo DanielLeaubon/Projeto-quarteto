@@ -3,7 +3,7 @@ const port = 3000;
 var cont = 0
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://dleaubon:sal12345678@projeto.hxqcz.mongodb.net/?retryWrites=true&w=majority&appName=Projeto";
+const uri = "mongodb+srv://dleaubon:sal1234@projeto.hxqcz.mongodb.net/?retryWrites=true&w=majority&appName=Projeto";
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -11,6 +11,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
 
 const express = require("express");
 const app = express();
@@ -35,50 +36,23 @@ if (fs.existsSync('cadastroDadosvacina.json')) {
   vetorDadosVacina = JSON.parse(dados)
 }
 
-/*
-app
-  .route("/")
-  .get((req, res) => {
-    res.redirect("/");
-  })
-  .post((req, res) => {
-  });
-*/
 
 app.get("/", (request, response) => {
   response.render("index");
 });
 
-app.route("/motivacao")
+app.route("/cadastroP")
   .get((req, res) => {
-    res.render("motivacao");
+    res.render("cadastroP");
   })
-  .post((req, res) => {
-    res.render("motivacao");
-  });
-
-
-app.route("/sobre")
-  .get((req, res) => {
-    res.render("sobre");
-  })
-  .post((req, res) => {
-    res.render("sobre");
-  });
-
-app
-  .route("/agradecimento")
-  .get((req, res) => {
-    res.redirect("/");
-  })
-  .post((req, res) => {
+  .post ( async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
     let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
     let CEPForm = req.body.CEPInput
     let enderecoForm = req.body.enderecoInput
-    let tipoSanguineoForm = req.body.tipoSanguineoInput
+    let vacinaForm = req.body.tipoSanguineoInput
 
     let cadastro = {
       'nome': nomeForm,
@@ -87,24 +61,73 @@ app
       'telefone': telefoneForm,
       'CEP': CEPForm,
       'endereco': enderecoForm,
-      'sangue': tipoSanguineoForm,
+      'vacina': vacinaForm,
     }
 
     console.log(cadastro);
     console.log('\n' + JSON.stringify(cadastro) + ',');
 
-    vetorDados.push(cadastro)
-    fs.writeFileSync('cadastroDados.json', `\n${JSON.stringify(vetorDados)}`)
-
-    res.render("agradecimento", { vetorDados });
+    vetorDadosP.push(cadastro)
+    try {
+      await client.connect(); 
+      await client.db("Projet").collection("Pacientes").insertOne(cadastro);
+    }finally {
+      await client.close();
+    }
+    
+    res.render("agradecimento", { vetorDadosP });
   });
 
-  app
-  .route("/vacina")
+
+
+
+
+  
+app.route("/cadastroM")
   .get((req, res) => {
+    res.render("cadastroM");
+  })
+  .post ( async (req, res) => {
+    let nomeForm = req.body.nomeInput
+    let idadeForm = req.body.idadeInput
+    let emailForm = req.body.emailInput
+    let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
+    let CEPForm = req.body.CEPInput
+    let enderecoForm = req.body.enderecoInput
+    let vacinaForm = req.body.tipoSanguineoInput
+
+    let cadastro = {
+      'nome': nomeForm,
+      'idade': idadeForm,
+      'email': emailForm,
+      'telefone': telefoneForm,
+      'CEP': CEPForm,
+      'endereco': enderecoForm,
+      'vacina': vacinaForm,
+    }
+
+    console.log(cadastro);
+    console.log('\n' + JSON.stringify(cadastro) + ',');
+
+    vetorDadosM.push(cadastro)
+    try {
+      await client.connect(); 
+      await client.db("admin").collection("Médicos").insertOne(cadastro);
+    }finally {
+      await client.close();
+    }
+    
+    res.render("agradecimento", { vetorDadosM });
+  });
+
+
+
+app
+  .route("/vacina")
+  .get((req, res)  => {
     res.render("vacina");
   })
-  .post((req, res) => {
+  .post ( async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
@@ -127,11 +150,55 @@ app
     console.log('\n' + JSON.stringify(cadastro) + ',');
 
     vetorDadosVacina.push(cadastro)
-    fs.writeFileSync('cadastroDados.json', `\n${JSON.stringify(vetorDadosVacina)}`)
-
+    try {
+      await client.connect(); 
+      await client.db("admin").collection("PessoasVacina").insertOne(cadastro);
+    }finally {
+      await client.close();
+    }
+    
     res.render("agradecimento", { vetorDadosVacina });
   });
 
+  
+
+  app
+  .route("/agradecimento")
+  .get((req, res) => {
+    res.redirect("/");
+  })
+  .post(async(req, res) => {
+    let nomeForm = req.body.nomeInput
+    let idadeForm = req.body.idadeInput
+    let emailForm = req.body.emailInput
+    let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
+    let CEPForm = req.body.CEPInput
+    let enderecoForm = req.body.enderecoInput
+    let tipoSanguineoForm = req.body.tipoSanguineoInput
+
+    let cadastro = {
+      'nome': nomeForm,
+      'idade': idadeForm,
+      'email': emailForm,
+      'telefone': telefoneForm,
+      'CEP': CEPForm,
+      'endereco': enderecoForm,
+      'sangue': tipoSanguineoForm,
+    }
+
+    console.log(cadastro);
+    console.log('\n' + JSON.stringify(cadastro) + ',');
+
+    vetorDados.push(cadastro)
+    try {
+      await client.connect(); 
+      await client.db("admin").collection("Pessoas").insertOne(cadastro);
+    }finally {
+      await client.close();
+    }
+
+    res.render("agradecimento", { vetorDados });
+  });
 
 app.get("/salvar", (req, res) => {
   res.render("formulario");
