@@ -70,7 +70,7 @@ app.route("/cadastroP")
     vetorDadosP.push(cadastro)
     try {
       await client.connect(); 
-      await client.db("Projet").collection("Pacientes").insertOne(cadastro);
+      await client.db("Projeto").collection("Pacientes").insertOne(cadastro);
     }finally {
       await client.close();
     }
@@ -112,7 +112,7 @@ app.route("/cadastroM")
     vetorDadosM.push(cadastro)
     try {
       await client.connect(); 
-      await client.db("admin").collection("Médicos").insertOne(cadastro);
+      await client.db("Projeto").collection("Médicos").insertOne(cadastro);
     }finally {
       await client.close();
     }
@@ -152,7 +152,7 @@ app
     vetorDadosVacina.push(cadastro)
     try {
       await client.connect(); 
-      await client.db("admin").collection("PessoasVacina").insertOne(cadastro);
+      await client.db("Projeto").collection("PessoasVacina").insertOne(cadastro);
     }finally {
       await client.close();
     }
@@ -192,7 +192,7 @@ app
     vetorDados.push(cadastro)
     try {
       await client.connect(); 
-      await client.db("admin").collection("Pessoas").insertOne(cadastro);
+      await client.db("Projeto").collection("Pessoas").insertOne(cadastro);
     }finally {
       await client.close();
     }
