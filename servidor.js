@@ -22,11 +22,17 @@ app.use(express.static('public'))
 const cors = require('cors')
 app.use(cors())
 
-var vetorDados = []
+var vetorDadosM = []
 if (fs.existsSync('cadastroDados.json')) {
   const dados = fs.readFileSync('cadastroDados.json', 'utf-8')
   console.log(dados);
-  vetorDados = JSON.parse(dados)
+  vetorDadosM = JSON.parse(dados)
+}
+var vetorDadosP = []
+if (fs.existsSync('cadastroDados.json')) {
+  const dados = fs.readFileSync('cadastroDados.json', 'utf-8')
+  console.log(dados);
+  vetorDadosP = JSON.parse(dados)
 }
 var vetorDadosVacina = []
 if (fs.existsSync('cadastroDadosvacina.json')) {
@@ -35,6 +41,8 @@ if (fs.existsSync('cadastroDadosvacina.json')) {
   vetorDadosVacina = JSON.parse(dados)
 }
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 
 /*-----PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE-----*/
 app.get("/", (request, response) => {
@@ -75,6 +83,44 @@ app.route("/cadastroP")
       await client.close();
     }
     
+    res.render("paciente", { vetorDadosP });
+  });
+
+  app
+  .route("/paciente")
+  .get((req, res) => {
+    res.redirect("/");
+  })
+  .post(async(req, res) => {
+    let nomeForm = req.body.nomeInput
+    let idadeForm = req.body.idadeInput
+    let emailForm = req.body.emailInput
+    let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
+    let CEPForm = req.body.CEPInput
+    let enderecoForm = req.body.enderecoInput
+    let tipoSanguineoForm = req.body.tipoSanguineoInput
+
+    let cadastro = {
+      'nome': nomeForm,
+      'idade': idadeForm,
+      'email': emailForm,
+      'telefone': telefoneForm,
+      'CEP': CEPForm,
+      'endereco': enderecoForm,
+      'sangue': tipoSanguineoForm,
+    }
+
+    console.log(cadastro);
+    console.log('\n' + JSON.stringify(cadastro) + ',');
+
+    vetorDadosP.push(cadastro)
+    try {
+      await client.connect(); 
+      await client.db("Projeto").collection("Pacientes").insertOne(cadastro);
+    }finally {
+      await client.close();
+    }
+
     res.render("paciente", { vetorDadosP });
   });
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -157,7 +203,6 @@ app.route("/cadastroM")
     res.render("medico", { vetorDadosM });
   });
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
 
 
 
