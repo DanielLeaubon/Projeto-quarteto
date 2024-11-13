@@ -63,7 +63,7 @@ app.get("/", (request, response) => {
 /*-----PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE-----*/
 app.route("/cadastroP")
   .get((req, res) => {
-    res.render("/");
+    res.render("cadastroP");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
@@ -142,7 +142,7 @@ app
 /*-----MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO-----*/
 app.route("/cadastroM")
   .get((req, res) => {
-    res.render("/");
+    res.render("cadastroM");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
@@ -222,7 +222,7 @@ app
 app
   .route("/vacina")
   .get((req, res) => {
-    res.render("/");
+    res.render("vacina");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
@@ -300,9 +300,9 @@ app
 
 /*-----CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA-----*/
 app
-  .route("/consulta")
+  .route("/cadastroC")
   .get((req, res) => {
-    res.render("/");
+    res.render("cadastroC");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
