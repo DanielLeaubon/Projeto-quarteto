@@ -12,7 +12,6 @@ const client = new MongoClient(uri, {
   }
 });
 
-
 const express = require("express");
 const app = express();
 const fs = require("fs");
@@ -35,8 +34,9 @@ if (fs.existsSync('cadastroDadosvacina.json')) {
   console.log(dados);
   vetorDadosVacina = JSON.parse(dados)
 }
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-
+/*-----PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE-----*/
 app.get("/", (request, response) => {
   response.render("index");
 });
@@ -75,14 +75,13 @@ app.route("/cadastroP")
       await client.close();
     }
     
-    res.render("agradecimento", { vetorDadosP });
+    res.render("paciente", { vetorDadosP });
   });
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
-
-
-  
+/*-----MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO-----*/
 app.route("/cadastroM")
   .get((req, res) => {
     res.render("cadastroM");
@@ -117,11 +116,52 @@ app.route("/cadastroM")
       await client.close();
     }
     
-    res.render("agradecimento", { vetorDadosM });
+    res.render("medico", { vetorDadosM });
   });
 
+  app
+  .route("/medico")
+  .get((req, res) => {
+    res.redirect("/");
+  })
+  .post(async(req, res) => {
+    let nomeForm = req.body.nomeInput
+    let idadeForm = req.body.idadeInput
+    let emailForm = req.body.emailInput
+    let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
+    let CEPForm = req.body.CEPInput
+    let enderecoForm = req.body.enderecoInput
+    let tipoSanguineoForm = req.body.tipoSanguineoInput
+
+    let cadastro = {
+      'nome': nomeForm,
+      'idade': idadeForm,
+      'email': emailForm,
+      'telefone': telefoneForm,
+      'CEP': CEPForm,
+      'endereco': enderecoForm,
+      'sangue': tipoSanguineoForm,
+    }
+
+    console.log(cadastro);
+    console.log('\n' + JSON.stringify(cadastro) + ',');
+
+    vetorDados.push(cadastro)
+    try {
+      await client.connect(); 
+      await client.db("Projeto").collection("Médicos").insertOne(cadastro);
+    }finally {
+      await client.close();
+    }
+
+    res.render("medico", { vetorDadosM });
+  });
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
+
+
+/*-----VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA-----*/
 app
   .route("/vacina")
   .get((req, res)  => {
@@ -134,7 +174,7 @@ app
     let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
     let CEPForm = req.body.CEPInput
     let enderecoForm = req.body.enderecoInput
-    let vacinaForm = req.body.tipoSanguineoInput
+    let vacinaForm = req.body.vacinaInput
 
     let cadastro = {
       'nome': nomeForm,
@@ -159,8 +199,6 @@ app
     
     res.render("agradecimento", { vetorDadosVacina });
   });
-
-  
 
   app
   .route("/agradecimento")
@@ -197,13 +235,15 @@ app
       await client.close();
     }
 
-    res.render("agradecimento", { vetorDados });
+    res.render("agradecimento", { vetorDadosVacina });
   });
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 
 app.get("/salvar", (req, res) => {
   res.render("formulario");
 });
-
 
 app.use((req, res, next) => {
   res.status(404).send("<h1>Página não encontrada.</h1>");
