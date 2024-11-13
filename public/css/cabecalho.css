@@ -5,12 +5,12 @@
     flex-shrink: 0;
 
     border-bottom: 3px solid #000;
-    background: #63ce6e;
+    background: #25742c;
 }
 
 #cabecalho h1 {
     position: relative;
-    left: 70%;
+    left: 20%;
     transform: translate(-50%);
     top: -40%;
     text-align: center;
