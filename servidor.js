@@ -23,16 +23,22 @@ const cors = require('cors')
 app.use(cors())
 
 var vetorDadosM = []
-if (fs.existsSync('cadastroDados.json')) {
-  const dados = fs.readFileSync('cadastroDados.json', 'utf-8')
+if (fs.existsSync('cadastroDadosMedico.json')) {
+  const dados = fs.readFileSync('cadastroDadosMedico.json', 'utf-8')
   console.log(dados);
   vetorDadosM = JSON.parse(dados)
 }
-var vetorDadosP = []
+var vetorDadosM = []
+if (fs.existsSync('cadastroDadosMedico.json')) {
+  const dados = fs.readFileSync('cadastroDadosMedico.json', 'utf-8')
+  console.log(dados);
+  vetorDadosM = JSON.parse(dados)
+}
+var vetorDados = []
 if (fs.existsSync('cadastroDados.json')) {
   const dados = fs.readFileSync('cadastroDados.json', 'utf-8')
   console.log(dados);
-  vetorDadosP = JSON.parse(dados)
+  vetorDados = JSON.parse(dados)
 }
 var vetorDadosVacina = []
 if (fs.existsSync('cadastroDadosvacina.json')) {
@@ -53,7 +59,7 @@ app.route("/cadastroP")
   .get((req, res) => {
     res.render("cadastroP");
   })
-  .post ( async (req, res) => {
+  .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
@@ -77,21 +83,21 @@ app.route("/cadastroP")
 
     vetorDadosP.push(cadastro)
     try {
-      await client.connect(); 
+      await client.connect();
       await client.db("Projeto").collection("Pacientes").insertOne(cadastro);
-    }finally {
+    } finally {
       await client.close();
     }
-    
+
     res.render("paciente", { vetorDadosP });
   });
 
-  app
+app
   .route("/paciente")
   .get((req, res) => {
     res.redirect("/");
   })
-  .post(async(req, res) => {
+  .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
@@ -115,9 +121,9 @@ app.route("/cadastroP")
 
     vetorDadosP.push(cadastro)
     try {
-      await client.connect(); 
+      await client.connect();
       await client.db("Projeto").collection("Pacientes").insertOne(cadastro);
-    }finally {
+    } finally {
       await client.close();
     }
 
@@ -132,7 +138,7 @@ app.route("/cadastroM")
   .get((req, res) => {
     res.render("cadastroM");
   })
-  .post ( async (req, res) => {
+  .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
@@ -156,21 +162,21 @@ app.route("/cadastroM")
 
     vetorDadosM.push(cadastro)
     try {
-      await client.connect(); 
+      await client.connect();
       await client.db("Projeto").collection("Médicos").insertOne(cadastro);
-    }finally {
+    } finally {
       await client.close();
     }
-    
+
     res.render("medico", { vetorDadosM });
   });
 
-  app
+app
   .route("/medico")
   .get((req, res) => {
     res.redirect("/");
   })
-  .post(async(req, res) => {
+  .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
@@ -194,9 +200,9 @@ app.route("/cadastroM")
 
     vetorDados.push(cadastro)
     try {
-      await client.connect(); 
+      await client.connect();
       await client.db("Projeto").collection("Médicos").insertOne(cadastro);
-    }finally {
+    } finally {
       await client.close();
     }
 
@@ -209,10 +215,10 @@ app.route("/cadastroM")
 /*-----VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA----------VACINA-----*/
 app
   .route("/vacina")
-  .get((req, res)  => {
+  .get((req, res) => {
     res.render("vacina");
   })
-  .post ( async (req, res) => {
+  .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
@@ -236,21 +242,21 @@ app
 
     vetorDadosVacina.push(cadastro)
     try {
-      await client.connect(); 
+      await client.connect();
       await client.db("Projeto").collection("PessoasVacina").insertOne(cadastro);
-    }finally {
+    } finally {
       await client.close();
     }
-    
+
     res.render("agradecimento", { vetorDadosVacina });
   });
 
-  app
+app
   .route("/agradecimento")
   .get((req, res) => {
     res.redirect("/");
   })
-  .post(async(req, res) => {
+  .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
     let idadeForm = req.body.idadeInput
     let emailForm = req.body.emailInput
@@ -274,9 +280,9 @@ app
 
     vetorDados.push(cadastro)
     try {
-      await client.connect(); 
-      await client.db("Projeto").collection("Pessoas").insertOne(cadastro);
-    }finally {
+      await client.connect();
+      await client.db("Projeto").collection("PessoasVacina").insertOne(cadastro);
+    } finally {
       await client.close();
     }
 
