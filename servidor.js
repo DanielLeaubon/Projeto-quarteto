@@ -52,18 +52,18 @@ if (fs.existsSync('cadastroDados.json')) {
   console.log(dados);
   vetorDados = JSON.parse(dados)
 }
+
+app.get("/", (request, response) => {
+  response.render("index");
+});
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
 /*-----PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE----------PACIENTE-----*/
-app.get("/", (request, response) => {
-  response.render("index");
-});
-
 app.route("/cadastroP")
   .get((req, res) => {
-    res.render("cadastroP");
+    res.render("/");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
@@ -142,7 +142,7 @@ app
 /*-----MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO----------MÉDICO-----*/
 app.route("/cadastroM")
   .get((req, res) => {
-    res.render("cadastroM");
+    res.render("/");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
@@ -222,7 +222,7 @@ app
 app
   .route("/vacina")
   .get((req, res) => {
-    res.render("vacina");
+    res.render("/");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
@@ -299,13 +299,10 @@ app
 
 
 /*-----CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA----------CONSULTA-----*/
-app.get("/", (request, response) => {
-  response.render("index");
-});
-
-app.route("/cadastroC")
+app
+  .route("/consulta")
   .get((req, res) => {
-    res.render("cadastroC");
+    res.render("/");
   })
   .post(async (req, res) => {
     let nomeForm = req.body.nomeInput
@@ -314,7 +311,7 @@ app.route("/cadastroC")
     let telefoneForm = req.body.dddInput + '-' + req.body.celularInput
     let CEPForm = req.body.CEPInput
     let enderecoForm = req.body.enderecoInput
-    let vacinaForm = req.body.tipoSanguineoInput
+    let vacinaForm = req.body.vacinaInput
 
     let cadastro = {
       'nome': nomeForm,
