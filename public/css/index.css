@@ -1,6 +1,7 @@
 body {
     box-sizing: border-box;
-    margin: 0;
+    margin: 0%;
+    padding: 0%;
 }
 
 #cabecalho {
@@ -19,7 +20,6 @@ body {
     font-size: 20pt;
     width: 40%;
     position: relative;
-    top: -25%;
     left: 7%;
     margin: 0%;
 }
@@ -28,10 +28,7 @@ body {
     color: #000;
     text-decoration: none;
 }
-.vacinas,
-.beneficios,
-.sobre,
-.cadastre-se {
+.botaoCabecalho {
     color: #000;
     text-align: center;
     font-family: Inika;
@@ -53,9 +50,7 @@ body {
     background: #828282;
 }
 
-.beneficios:hover,
-.sobre:hover,
-.cadastre-se:hover {
+.botaoCabecalho:hover {
     background-color: rgb(50, 50, 50);
     cursor: pointer;
 }
